@@ -1,6 +1,11 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxOsc.h"
+#include "ofxTimeline.h"
+
+#define QLAB_OSC_PORT 53001
+#define MAX_MSP_OSC_PORT 9000
 
 class ofApp : public ofBaseApp{
 
@@ -20,5 +25,13 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-		
+
+		void receivedBang(ofxTLBangEventArgs& bang);
+		void printOscMessage(ofxOscMessage message);
+		void startShow();
+		void endShow();
+
+		ofxTimeline timeline;
+		ofxOscSender oscSender;
+		ofxOscReceiver oscReceiver;
 };

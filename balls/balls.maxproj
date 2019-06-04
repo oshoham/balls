@@ -2,7 +2,7 @@
 	"name" : "balls",
 	"version" : 1,
 	"creationdate" : 3641991727,
-	"modificationdate" : 3641991761,
+	"modificationdate" : 3642578339,
 	"viewrect" : [ 50.0, 98.0, 300.0, 500.0 ],
 	"autoorganize" : 1,
 	"hideprojectwindow" : 0,
@@ -14,6 +14,32 @@
 				"kind" : "patcher",
 				"local" : 1,
 				"toplevel" : 1
+			}
+,
+			"visuals.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"tri.sphere.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+
+		}
+,
+		"code" : 		{
+			"myo-client.js" : 			{
+				"kind" : "javascript",
+				"local" : 1
+			}
+
+		}
+,
+		"externals" : 		{
+			"jit.gl.spoutsender.mxe64" : 			{
+				"kind" : "object",
+				"local" : 1
 			}
 
 		}
