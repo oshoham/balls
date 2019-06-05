@@ -15,10 +15,14 @@ void ofApp::setup(){
 	ofxTimeline::removeCocoaMenusFromGlut("Empty Templates");
 	timeline.setup();
 	timeline.setFrameRate(60);
-	timeline.setFrameBased(false);
+	timeline.setDurationInSeconds(60);
+	timeline.setFrameBased(true);
+	timeline.setLoopType(OF_LOOP_NONE);
+	timeline.addCurves("Left Ball Position", ofRange(0.0, 1.0));
+	timeline.addCurves("Right Ball Position", ofRange(0.0, 1.0));
 	ofAddListener(timeline.events().bangFired, this, &ofApp::receivedBang);
 
-	startShow();
+	//startShow();
 }
 
 //--------------------------------------------------------------
@@ -37,6 +41,18 @@ void ofApp::update(){
 		else {
 			printOscMessage(message);
 		}
+	}
+
+	if (timeline.getIsPlaying()) {
+		ofxOscMessage leftBallPositionMessage;
+		leftBallPositionMessage.setAddress("/left_ball/position");
+		leftBallPositionMessage.addFloatArg(timeline.getValue("Left Ball Position"));
+		oscSender.sendMessage(leftBallPositionMessage, false);
+
+		ofxOscMessage rightBallPositionMessage;
+		rightBallPositionMessage.setAddress("/right_ball/position");
+		rightBallPositionMessage.addFloatArg(timeline.getValue("Right Ball Position"));
+		oscSender.sendMessage(rightBallPositionMessage, false);
 	}
 }
 
