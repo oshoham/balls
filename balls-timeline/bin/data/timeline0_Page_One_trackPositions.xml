@@ -1,4 +1,10 @@
 <positions>
+    <element name="Audio">
+        <x>0.000000000</x>
+        <y>57.000000000</y>
+        <width>1024.000000000</width>
+        <height>136.000000000</height>
+    </element>
     <element name="Flags">
         <x>0.000000000</x>
         <y>57.000000000</y>
@@ -7,14 +13,14 @@
     </element>
     <element name="Left Ball Position">
         <x>0.000000000</x>
-        <y>57.000000000</y>
+        <y>225.000000000</y>
         <width>1024.000000000</width>
-        <height>228.000000000</height>
+        <height>186.000000000</height>
     </element>
     <element name="Right Ball Position">
         <x>0.000000000</x>
-        <y>317.000000000</y>
+        <y>443.000000000</y>
         <width>1024.000000000</width>
-        <height>169.000000000</height>
+        <height>157.000000000</height>
     </element>
 </positions>

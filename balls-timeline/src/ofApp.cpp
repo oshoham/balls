@@ -15,9 +15,11 @@ void ofApp::setup(){
 	ofxTimeline::removeCocoaMenusFromGlut("Empty Templates");
 	timeline.setup();
 	timeline.setFrameRate(60);
-	timeline.setDurationInSeconds(60);
 	timeline.setFrameBased(true);
 	timeline.setLoopType(OF_LOOP_NONE);
+	timeline.addAudioTrack("Audio", "_BALLS_script_mix3.1.wav");
+	//timeline.setTimecontrolTrack("Audio");
+	//timeline.setDurationInSeconds(timeline.getAudioTrack("Audio")->getDuration());
 	timeline.addCurves("Left Ball Position", ofRange(0.0, 1.0));
 	timeline.addCurves("Right Ball Position", ofRange(0.0, 1.0));
 	ofAddListener(timeline.events().bangFired, this, &ofApp::receivedBang);
