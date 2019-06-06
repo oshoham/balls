@@ -14,12 +14,12 @@ void ofApp::setup(){
 
 	ofxTimeline::removeCocoaMenusFromGlut("Empty Templates");
 	timeline.setup();
-	timeline.setFrameRate(60);
-	timeline.setFrameBased(true);
+//    timeline.setFrameRate(60);
+//    timeline.setFrameBased(true);
 	timeline.setLoopType(OF_LOOP_NONE);
-	timeline.addAudioTrack("Audio", "_BALLS_script_mix3.1.wav");
-	//timeline.setTimecontrolTrack("Audio");
-	//timeline.setDurationInSeconds(timeline.getAudioTrack("Audio")->getDuration());
+    timeline.addAudioTrack("Audio", "_BALLS_script_mix3.1.mp3");
+    timeline.setTimecontrolTrack("Audio");
+    timeline.setDurationInSeconds(timeline.getAudioTrack("Audio")->getDuration());
 	timeline.addCurves("Left Ball Position", ofRange(0.0, 1.0));
 	timeline.addCurves("Right Ball Position", ofRange(0.0, 1.0));
 	ofAddListener(timeline.events().bangFired, this, &ofApp::receivedBang);
@@ -55,6 +55,15 @@ void ofApp::update(){
 		rightBallPositionMessage.setAddress("/right_ball/position");
 		rightBallPositionMessage.addFloatArg(timeline.getValue("Right Ball Position"));
 		oscSender.sendMessage(rightBallPositionMessage, false);
+        
+        ofxTLAudioTrack* track = timeline.getAudioTrack("Audio");
+        ofxOscMessage audioFFTMessage;
+        audioFFTMessage.setAddress("/fft");
+        vector<float> fft = track->getFFT();
+        for (int i = 0; i < track->getFFTSize(); i++) {
+            audioFFTMessage.addFloatArg(fft[i]);
+        }
+        oscSender.sendMessage(audioFFTMessage, false);
 	}
 }
 
