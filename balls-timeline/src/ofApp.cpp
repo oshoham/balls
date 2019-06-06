@@ -12,7 +12,7 @@ void ofApp::setup(){
 
 	// setup ofxTimeline
 
-	ofxTimeline::removeCocoaMenusFromGlut("Empty Templates");
+	ofxTimeline::removeCocoaMenusFromGlut("Balls Timeline");
 	timeline.setup();
 //    timeline.setFrameRate(60);
 //    timeline.setFrameBased(true);
@@ -25,10 +25,12 @@ void ofApp::setup(){
 	timeline.addCurves("Right Ball Position", ofRange(0.0, 1.0));
 	ofAddListener(timeline.events().bangFired, this, &ofApp::receivedBang);
     
+#if LOCKED_AND_MUTED
     ofxTLAudioTrack* track = timeline.getAudioTrack("Audio");
-//    track->setVolume(0);
-
-	//startShow();
+    track->setVolume(0);
+    timeline.setSpacebarTogglePlay(false);
+    timeline.disableEvents();
+#endif
 }
 
 //--------------------------------------------------------------
@@ -38,8 +40,9 @@ void ofApp::update(){
 		oscReceiver.getNextMessage(message);
 		string address = message.getAddress();
 
-		if (address == "/start_show") {
-			startShow();
+		if (address == "/start_show" && !timeline.getIsPlaying()) {
+            timeline.setCurrentTimeSeconds(0);
+			timeline.play();
 		}
 		else if (address == "/end_show") {
 			endShow();
@@ -98,9 +101,7 @@ void ofApp::receivedBang(ofxTLBangEventArgs& bang) {
 
 //--------------------------------------------------------------
 void ofApp::startShow() {
-	ofxOscMessage message;
-	message.setAddress("/start_show");
-	oscSender.sendMessage(message, false);
+    
 }
 
 //--------------------------------------------------------------

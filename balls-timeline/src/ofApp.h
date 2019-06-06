@@ -5,6 +5,7 @@
 #include "ofxTimeline.h"
 #include "ofxTLAudioTrack.h"
 
+#define LOCKED_AND_MUTED false
 #define QLAB_OSC_PORT 53001
 #define MAX_MSP_OSC_PORT 9000
 
