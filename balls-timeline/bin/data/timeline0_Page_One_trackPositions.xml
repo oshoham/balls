@@ -3,13 +3,13 @@
         <x>0.000000000</x>
         <y>57.000000000</y>
         <width>1024.000000000</width>
-        <height>168.460937500</height>
+        <height>56.132812500</height>
     </element>
     <element name="Fade">
         <x>0.000000000</x>
-        <y>257.460937500</y>
+        <y>145.132812500</y>
         <width>1024.000000000</width>
-        <height>90.621093750</height>
+        <height>42.714843750</height>
     </element>
     <element name="Flags">
         <x>0.000000000</x>
@@ -19,14 +19,20 @@
     </element>
     <element name="Left Ball Position">
         <x>0.000000000</x>
-        <y>380.082031250</y>
+        <y>219.847656250</y>
         <width>1024.000000000</width>
-        <height>99.855468750</height>
+        <height>26.933593750</height>
+    </element>
+    <element name="Renderer">
+        <x>0.000000000</x>
+        <y>338.308593750</y>
+        <width>1024.000000000</width>
+        <height>17.117187500</height>
     </element>
     <element name="Right Ball Position">
         <x>0.000000000</x>
-        <y>511.937500000</y>
+        <y>278.781250000</y>
         <width>1024.000000000</width>
-        <height>76.992187500</height>
+        <height>27.527343750</height>
     </element>
 </positions>

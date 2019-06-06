@@ -29,9 +29,8 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
 		void receivedBang(ofxTLBangEventArgs& bang);
+        void receivedSwitchEvent(ofxTLSwitchEventArgs& switchEvent);
 		void printOscMessage(ofxOscMessage message);
-		void startShow();
-		void endShow();
 
 		ofxTimeline timeline;
 		ofxOscSender oscSender;

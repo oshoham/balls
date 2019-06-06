@@ -23,7 +23,9 @@ void ofApp::setup(){
     timeline.addCurves("Fade", ofRange(0.0, 1.0));
 	timeline.addCurves("Left Ball Position", ofRange(0.0, 1.0));
 	timeline.addCurves("Right Ball Position", ofRange(0.0, 1.0));
+    timeline.addSwitches("Renderer");
 	ofAddListener(timeline.events().bangFired, this, &ofApp::receivedBang);
+    ofAddListener(timeline.events().switched, this, &ofApp::receivedSwitchEvent);
     
 #if LOCKED_AND_MUTED
     ofxTLAudioTrack* track = timeline.getAudioTrack("Audio");
@@ -43,9 +45,6 @@ void ofApp::update(){
 		if (address == "/start_show" && !timeline.getIsPlaying()) {
             timeline.setCurrentTimeSeconds(0);
 			timeline.play();
-		}
-		else if (address == "/end_show") {
-			endShow();
 		}
 		else {
 			printOscMessage(message);
@@ -100,15 +99,13 @@ void ofApp::receivedBang(ofxTLBangEventArgs& bang) {
 }
 
 //--------------------------------------------------------------
-void ofApp::startShow() {
-    
-}
-
-//--------------------------------------------------------------
-void ofApp::endShow() {
-	ofxOscMessage message;
-	message.setAddress("/end_show");
-	oscSender.sendMessage(message, false);
+void ofApp::receivedSwitchEvent(ofxTLSwitchEventArgs& switchEvent) {
+    if (switchEvent.track->getName() == "Renderer") {
+        ofxOscMessage rendererMessage;
+        rendererMessage.setAddress("/enable_renderer");
+        rendererMessage.addBoolArg(switchEvent.on);
+        oscSender.sendMessage(rendererMessage, false);
+    }
 }
 
 //--------------------------------------------------------------
