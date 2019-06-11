@@ -3,42 +3,42 @@
         <x>0.000000000</x>
         <y>58.000000000</y>
         <width>1024.000000000</width>
-        <height>64.933593750</height>
+        <height>40.000000000</height>
     </element>
     <element name="Left Ball Jitter">
         <x>0.000000000</x>
-        <y>514.855468750</y>
+        <y>489.921875000</y>
         <width>1024.000000000</width>
         <height>25.492187500</height>
     </element>
     <element name="Left Ball Position">
         <x>0.000000000</x>
-        <y>154.933593750</y>
+        <y>130.000000000</y>
         <width>1024.000000000</width>
         <height>164.285156250</height>
     </element>
     <element name="Left Ball Size">
         <x>0.000000000</x>
-        <y>631.898437500</y>
+        <y>607.722656250</y>
         <width>1024.000000000</width>
         <height>25.613281250</height>
     </element>
     <element name="Right Ball Jitter">
         <x>0.000000000</x>
-        <y>572.347656250</y>
+        <y>547.414062500</y>
         <width>1024.000000000</width>
-        <height>27.550781250</height>
+        <height>28.308593750</height>
     </element>
     <element name="Right Ball Position">
         <x>0.000000000</x>
-        <y>351.218750000</y>
+        <y>326.285156250</y>
         <width>1024.000000000</width>
         <height>131.636718750</height>
     </element>
     <element name="Right Ball Size">
         <x>0.000000000</x>
-        <y>689.511718750</y>
+        <y>665.335937500</y>
         <width>1024.000000000</width>
-        <height>27.015625000</height>
+        <height>28.023437500</height>
     </element>
 </positions>

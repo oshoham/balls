@@ -27,6 +27,7 @@ void ofApp::setup(){
     timeline.addCurves("Master Fade", ofRange(0.0, 1.0));
     timeline.addCurves("Balls Fade", ofRange(0.0, 1.0));
     timeline.addCurves("Stars Fade", ofRange(0.0, 1.0));
+    timeline.addCurves("Chaos Fade", ofRange(0.0, 1.0));
     
     timeline.addPage("Balls");
     timeline.getPage("Balls")->addTrack("Audio", audioTrack);
@@ -40,6 +41,10 @@ void ofApp::setup(){
     timeline.addPage("Stars");
     timeline.getPage("Stars")->addTrack("Audio", audioTrack);
     timeline.addSwitches("Twinkle");
+    
+    timeline.addPage("Chaos");
+    timeline.getPage("Chaos")->addTrack("Audio", audioTrack);
+    timeline.addSwitches("Lots of Balls");
     
     timeline.setCurrentPage(0);
     
@@ -89,6 +94,11 @@ void ofApp::update(){
         ballsFadeMessage.setAddress("/balls/fade");
         ballsFadeMessage.addFloatArg(timeline.getValue("Balls Fade"));
         oscSender.sendMessage(ballsFadeMessage, false);
+        
+        ofxOscMessage chaosFadeMessage;
+        chaosFadeMessage.setAddress("/lots_of_balls/fade");
+        chaosFadeMessage.addFloatArg(timeline.getValue("Chaos Fade"));
+        oscSender.sendMessage(chaosFadeMessage, false);
         
         ofxOscMessage leftBallPositionMessage;
         leftBallPositionMessage.setAddress("/left_ball/position");
@@ -170,6 +180,11 @@ void ofApp::receivedSwitchEvent(ofxTLSwitchEventArgs& switchEvent) {
         twinkleMessage.setAddress("/stars/enable_twinkle");
         twinkleMessage.addBoolArg(switchEvent.on);
         oscSender.sendMessage(twinkleMessage, false);
+    } else if (switchEvent.track->getName() == "Lots of Balls") {
+        ofxOscMessage lotsOfBallsMessage;
+        lotsOfBallsMessage.setAddress("/lots_of_balls/enable");
+        lotsOfBallsMessage.addBoolArg(switchEvent.on);
+        oscSender.sendMessage(lotsOfBallsMessage, false);
     }
 }
 
