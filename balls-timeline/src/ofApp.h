@@ -5,6 +5,7 @@
 #include "ofxTimeline.h"
 #include "ofxTLAudioTrack.h"
 
+#define TARGET_FPS 30
 #define LOCKED_AND_MUTED false
 #define QLAB_OSC_PORT 53001
 #define MAX_MSP_OSC_PORT 9000
@@ -15,8 +16,9 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
+        void exit();
 
-		void keyPressed(int key);
+		void keyPressed(ofKeyEventArgs & keyArgs);
 		void keyReleased(int key);
 		void mouseMoved(int x, int y );
 		void mouseDragged(int x, int y, int button);

@@ -3,7 +3,8 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 	ofBackground(255 * 0.15);
-	ofSetFrameRate(60);
+    ofSetFrameRate(TARGET_FPS);
+    ofSetEscapeQuitsApp(false);
 
 	// setup OSC
 
@@ -14,16 +15,34 @@ void ofApp::setup(){
 
 	ofxTimeline::removeCocoaMenusFromGlut("Balls Timeline");
 	timeline.setup();
-//    timeline.setFrameRate(60);
+    timeline.setFrameRate(TARGET_FPS);
 //    timeline.setFrameBased(true);
 	timeline.setLoopType(OF_LOOP_NONE);
-    timeline.addAudioTrack("Audio", "_BALLS_script_mix3.1.mp3");
+    timeline.addAudioTrack("Audio", "MixDown.mp3");
     timeline.setTimecontrolTrack("Audio");
-    timeline.setDurationInSeconds(timeline.getAudioTrack("Audio")->getDuration());
-    timeline.addCurves("Fade", ofRange(0.0, 1.0));
-	timeline.addCurves("Left Ball Position", ofRange(0.0, 1.0));
-	timeline.addCurves("Right Ball Position", ofRange(0.0, 1.0));
-    timeline.addSwitches("Renderer");
+    ofxTLAudioTrack* audioTrack = timeline.getAudioTrack("Audio");
+    timeline.setDurationInSeconds(audioTrack->getDuration());
+    
+    timeline.setPageName("Master");
+    timeline.addCurves("Master Fade", ofRange(0.0, 1.0));
+    timeline.addCurves("Balls Fade", ofRange(0.0, 1.0));
+    timeline.addCurves("Stars Fade", ofRange(0.0, 1.0));
+    
+    timeline.addPage("Balls");
+    timeline.getPage("Balls")->addTrack("Audio", audioTrack);
+    timeline.addLFO("Left Ball Position", ofRange(0.0, 1.0), 0.0);
+    timeline.addLFO("Right Ball Position", ofRange(0.0, 1.0), 0.0);
+    timeline.addCurves("Left Ball Jitter", ofRange(0.0, 0.2));
+    timeline.addCurves("Right Ball Jitter", ofRange(0.0, 0.2));
+    timeline.addCurves("Left Ball Size", ofRange(0.0, 1.0));
+    timeline.addCurves("Right Ball Size", ofRange(0.0, 1.0));
+    
+    timeline.addPage("Stars");
+    timeline.getPage("Stars")->addTrack("Audio", audioTrack);
+    timeline.addSwitches("Twinkle");
+    
+    timeline.setCurrentPage(0);
+    
 	ofAddListener(timeline.events().bangFired, this, &ofApp::receivedBang);
     ofAddListener(timeline.events().switched, this, &ofApp::receivedSwitchEvent);
     
@@ -33,6 +52,10 @@ void ofApp::setup(){
     timeline.setSpacebarTogglePlay(false);
     timeline.disableEvents();
 #endif
+    
+    timeline.enableSnapToOtherKeyframes(false);
+    timeline.enableSnapToBPM(false);
+    timeline.moveToThread();
 }
 
 //--------------------------------------------------------------
@@ -54,32 +77,74 @@ void ofApp::update(){
 	if (timeline.getIsPlaying()) {
         ofxOscMessage fadeMessage;
         fadeMessage.setAddress("/fade");
-        fadeMessage.addFloatArg(timeline.getValue("Fade"));
+        fadeMessage.addFloatArg(timeline.getValue("Master Fade"));
         oscSender.sendMessage(fadeMessage, false);
         
-		ofxOscMessage leftBallPositionMessage;
-		leftBallPositionMessage.setAddress("/left_ball/position");
-		leftBallPositionMessage.addFloatArg(timeline.getValue("Left Ball Position"));
-		oscSender.sendMessage(leftBallPositionMessage, false);
-
-		ofxOscMessage rightBallPositionMessage;
-		rightBallPositionMessage.setAddress("/right_ball/position");
-		rightBallPositionMessage.addFloatArg(timeline.getValue("Right Ball Position"));
-		oscSender.sendMessage(rightBallPositionMessage, false);
+        ofxOscMessage starsFadeMessage;
+        starsFadeMessage.setAddress("/stars/fade");
+        starsFadeMessage.addFloatArg(timeline.getValue("Stars Fade"));
+        oscSender.sendMessage(starsFadeMessage, false);
+        
+        ofxOscMessage ballsFadeMessage;
+        ballsFadeMessage.setAddress("/balls/fade");
+        ballsFadeMessage.addFloatArg(timeline.getValue("Balls Fade"));
+        oscSender.sendMessage(ballsFadeMessage, false);
+        
+        ofxOscMessage leftBallPositionMessage;
+        leftBallPositionMessage.setAddress("/left_ball/position");
+        leftBallPositionMessage.addFloatArg(timeline.getValue("Left Ball Position"));
+        oscSender.sendMessage(leftBallPositionMessage, false);
+        
+        ofxOscMessage rightBallPositionMessage;
+        rightBallPositionMessage.setAddress("/right_ball/position");
+        rightBallPositionMessage.addFloatArg(timeline.getValue("Right Ball Position"));
+        oscSender.sendMessage(rightBallPositionMessage, false);
+        
+        ofxOscMessage leftBallJitterMessage;
+        leftBallJitterMessage.setAddress("/left_ball/jitter");
+        leftBallJitterMessage.addFloatArg(timeline.getValue("Left Ball Jitter"));
+        oscSender.sendMessage(leftBallJitterMessage, false);
+        
+        ofxOscMessage rightBallJitterMessage;
+        rightBallJitterMessage.setAddress("/right_ball/jitter");
+        rightBallJitterMessage.addFloatArg(timeline.getValue("Right Ball Jitter"));
+        oscSender.sendMessage(rightBallJitterMessage, false);
+        
+        ofxOscMessage leftBallSizeMessage;
+        leftBallSizeMessage.setAddress("/left_ball/size");
+        leftBallSizeMessage.addFloatArg(timeline.getValue("Left Ball Size"));
+        oscSender.sendMessage(leftBallSizeMessage, false);
+        
+        ofxOscMessage rightBallSizeMessage;
+        rightBallSizeMessage.setAddress("/right_ball/size");
+        rightBallSizeMessage.addFloatArg(timeline.getValue("Right Ball Size"));
+        oscSender.sendMessage(rightBallSizeMessage, false);
         
         ofxTLAudioTrack* track = timeline.getAudioTrack("Audio");
         ofxOscMessage audioFFTMessage;
-        audioFFTMessage.setAddress("/fft");        vector<float> fft = track->getFFT();
+        audioFFTMessage.setAddress("/fft");
+        vector<float> fft = track->getFFT();
         for (int i = 0; i < track->getFFTSize(); i++) {
             audioFFTMessage.addFloatArg(fft[i]);
         }
         oscSender.sendMessage(audioFFTMessage, false);
+        
+        ofxOscMessage rendererMessage;
+        rendererMessage.setAddress("/enable_renderer");
+        rendererMessage.addIntArg(1);
+        oscSender.sendMessage(rendererMessage, false);
 	}
+    
+//    cout << ofGetFrameRate() << endl;
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
 	timeline.draw();
+}
+
+//--------------------------------------------------------------
+void ofApp::exit() {
 }
 
 //--------------------------------------------------------------
@@ -100,11 +165,11 @@ void ofApp::receivedBang(ofxTLBangEventArgs& bang) {
 
 //--------------------------------------------------------------
 void ofApp::receivedSwitchEvent(ofxTLSwitchEventArgs& switchEvent) {
-    if (switchEvent.track->getName() == "Renderer") {
-        ofxOscMessage rendererMessage;
-        rendererMessage.setAddress("/enable_renderer");
-        rendererMessage.addBoolArg(switchEvent.on);
-        oscSender.sendMessage(rendererMessage, false);
+    if (switchEvent.track->getName() == "Twinkle") {
+        ofxOscMessage twinkleMessage;
+        twinkleMessage.setAddress("/stars/enable_twinkle");
+        twinkleMessage.addBoolArg(switchEvent.on);
+        oscSender.sendMessage(twinkleMessage, false);
     }
 }
 
@@ -135,8 +200,14 @@ void ofApp::printOscMessage(ofxOscMessage message) {
 }
 
 //--------------------------------------------------------------
-void ofApp::keyPressed(int key){
-
+void ofApp::keyPressed(ofKeyEventArgs & keyArgs){
+    if (keyArgs.key == 't' && keyArgs.hasModifier(OF_KEY_COMMAND)) {
+        timeline.enableSnapToOtherKeyframes(!timeline.getSnapToOtherElements());
+    } else if (keyArgs.key == OF_KEY_RIGHT && keyArgs.hasModifier(OF_KEY_COMMAND)) {
+        timeline.setCurrentPage(ofWrap(timeline.getCurrentPageIndex() + 1, 0, timeline.getPages().size()));
+    } else if (keyArgs.key == OF_KEY_LEFT && keyArgs.hasModifier(OF_KEY_COMMAND)) {
+        timeline.setCurrentPage(ofWrap(timeline.getCurrentPageIndex() - 1, 0, timeline.getPages().size()));
+    }
 }
 
 //--------------------------------------------------------------

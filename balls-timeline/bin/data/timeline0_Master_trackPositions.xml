@@ -1,0 +1,62 @@
+<positions>
+    <element name="Audio">
+        <x>0.000000000</x>
+        <y>58.000000000</y>
+        <width>1024.000000000</width>
+        <height>64.933593750</height>
+    </element>
+    <element name="Balls Fade">
+        <x>0.000000000</x>
+        <y>366.984375000</y>
+        <width>1024.000000000</width>
+        <height>82.976562500</height>
+    </element>
+    <element name="Fade">
+        <x>0.000000000</x>
+        <y>190.640625000</y>
+        <width>1024.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="Flags">
+        <x>0.000000000</x>
+        <y>57.000000000</y>
+        <width>1024.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="Global Fade">
+        <x>0.000000000</x>
+        <y>154.933593750</y>
+        <width>1024.000000000</width>
+        <height>82.695312500</height>
+    </element>
+    <element name="Left Ball Position">
+        <x>0.000000000</x>
+        <y>195.570312500</y>
+        <width>1024.000000000</width>
+        <height>207.621093750</height>
+    </element>
+    <element name="Master Fade">
+        <x>0.000000000</x>
+        <y>154.933593750</y>
+        <width>1024.000000000</width>
+        <height>180.050781250</height>
+    </element>
+    <element name="Renderer">
+        <x>0.000000000</x>
+        <y>604.527343750</y>
+        <width>1024.000000000</width>
+        <height>17.117187500</height>
+    </element>
+    <element name="Right Ball Position">
+        <x>0.000000000</x>
+        <y>435.191406250</y>
+        <width>1024.000000000</width>
+        <height>184.648437500</height>
+    </element>
+    <element name="Stars Fade">
+        <x>0.000000000</x>
+        <y>481.960937500</y>
+        <width>1024.000000000</width>
+        <height>90.074218750</height>
+    </element>
+</positions>

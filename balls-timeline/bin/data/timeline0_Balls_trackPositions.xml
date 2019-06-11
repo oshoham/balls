@@ -1,0 +1,44 @@
+<positions>
+    <element name="Audio">
+        <x>0.000000000</x>
+        <y>58.000000000</y>
+        <width>1024.000000000</width>
+        <height>64.933593750</height>
+    </element>
+    <element name="Left Ball Jitter">
+        <x>0.000000000</x>
+        <y>514.855468750</y>
+        <width>1024.000000000</width>
+        <height>25.492187500</height>
+    </element>
+    <element name="Left Ball Position">
+        <x>0.000000000</x>
+        <y>154.933593750</y>
+        <width>1024.000000000</width>
+        <height>164.285156250</height>
+    </element>
+    <element name="Left Ball Size">
+        <x>0.000000000</x>
+        <y>631.898437500</y>
+        <width>1024.000000000</width>
+        <height>25.613281250</height>
+    </element>
+    <element name="Right Ball Jitter">
+        <x>0.000000000</x>
+        <y>572.347656250</y>
+        <width>1024.000000000</width>
+        <height>27.550781250</height>
+    </element>
+    <element name="Right Ball Position">
+        <x>0.000000000</x>
+        <y>351.218750000</y>
+        <width>1024.000000000</width>
+        <height>131.636718750</height>
+    </element>
+    <element name="Right Ball Size">
+        <x>0.000000000</x>
+        <y>689.511718750</y>
+        <width>1024.000000000</width>
+        <height>27.015625000</height>
+    </element>
+</positions>
