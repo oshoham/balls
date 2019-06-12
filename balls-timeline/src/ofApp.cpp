@@ -64,16 +64,16 @@ void ofApp::setup(){
     
     bleDeviceId1 = "89176AE2-CCA7-4224-A58B-A40493DBE74D";
     bleDeviceId2 = "FAF59FA4-1FED-41DD-8E97-1764B1F2706B";
-    bleHeartRate1.setup();
-    bleHeartRate2.setup();
-    ofAddListener(bleHeartRate1.hrmEvent, this, &ofApp::onHRMEvent);
-    ofAddListener(bleHeartRate1.scanEvent, this, &ofApp::onScanEvent);
-    ofAddListener(bleHeartRate1.connectEvent, this, &ofApp::onConnectEvent);
-    ofAddListener(bleHeartRate1.disconnectEvent, this, &ofApp::onDisconnectEvent);
-    ofAddListener(bleHeartRate2.hrmEvent, this, &ofApp::onHRMEvent);
-    ofAddListener(bleHeartRate2.scanEvent, this, &ofApp::onScanEvent);
-    ofAddListener(bleHeartRate2.connectEvent, this, &ofApp::onConnectEvent);
-    ofAddListener(bleHeartRate2.disconnectEvent, this, &ofApp::onDisconnectEvent);
+//    bleHeartRate1.setup();
+//    bleHeartRate2.setup();
+//    ofAddListener(bleHeartRate1.hrmEvent, this, &ofApp::onHRMEvent);
+//    ofAddListener(bleHeartRate1.scanEvent, this, &ofApp::onScanEvent);
+//    ofAddListener(bleHeartRate1.connectEvent, this, &ofApp::onConnectEvent);
+//    ofAddListener(bleHeartRate1.disconnectEvent, this, &ofApp::onDisconnectEvent);
+//    ofAddListener(bleHeartRate2.hrmEvent, this, &ofApp::onHRMEvent);
+//    ofAddListener(bleHeartRate2.scanEvent, this, &ofApp::onScanEvent);
+//    ofAddListener(bleHeartRate2.connectEvent, this, &ofApp::onConnectEvent);
+//    ofAddListener(bleHeartRate2.disconnectEvent, this, &ofApp::onDisconnectEvent);
 }
 
 //--------------------------------------------------------------
@@ -83,7 +83,13 @@ void ofApp::update(){
 		oscReceiver.getNextMessage(message);
 		string address = message.getAddress();
 
-		if (address == "/start_show" && !timeline.getIsPlaying()) {
+		if (address == "/start_show") {
+            if (timeline.getIsPlaying()) {
+                timeline.stop();
+            }
+            ofxOscMessage initMessage;
+            initMessage.setAddress("/init");
+            oscSender.sendMessage(initMessage, false);
             timeline.setCurrentTimeSeconds(0);
 			timeline.play();
 		}

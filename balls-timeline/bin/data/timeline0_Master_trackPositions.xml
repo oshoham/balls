@@ -13,9 +13,9 @@
     </element>
     <element name="Chaos Fade">
         <x>0.000000000</x>
-        <y>464.800781250</y>
+        <y>516.320312500</y>
         <width>1024.000000000</width>
-        <height>78.382812500</height>
+        <height>91.527343750</height>
     </element>
     <element name="Fade">
         <x>0.000000000</x>
@@ -63,6 +63,6 @@
         <x>0.000000000</x>
         <y>354.554687500</y>
         <width>1024.000000000</width>
-        <height>78.246093750</height>
+        <height>129.765625000</height>
     </element>
 </positions>
