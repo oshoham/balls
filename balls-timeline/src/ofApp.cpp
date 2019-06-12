@@ -62,8 +62,8 @@ void ofApp::setup(){
     timeline.enableSnapToBPM(false);
     timeline.moveToThread();
     
-    bleDeviceId1 = "";
-    bleDeviceId2 = "";
+    bleDeviceId1 = "89176AE2-CCA7-4224-A58B-A40493DBE74D";
+    bleDeviceId2 = "FAF59FA4-1FED-41DD-8E97-1764B1F2706B";
     bleHeartRate1.setup();
     bleHeartRate2.setup();
     ofAddListener(bleHeartRate1.hrmEvent, this, &ofApp::onHRMEvent);
@@ -158,7 +158,15 @@ void ofApp::update(){
         oscSender.sendMessage(rendererMessage, false);
 	}
     
-//    cout << ofGetFrameRate() << endl;
+//    bool isHeartRate1Connected = bleHeartRate1.bleHeartRateDelegate.isConnected;
+//    bool isHeartRate2Connected = bleHeartRate2.bleHeartRateDelegate.isConnected;
+//
+//    if (!isHeartRate1Connected) {
+//        bleHeartRate1.startScan();
+//    }
+//    if (!isHeartRate2Connected) {
+//        bleHeartRate2.startScan();
+//    }
 }
 
 //--------------------------------------------------------------
@@ -256,6 +264,7 @@ void ofApp::onHRMEvent(ofxBLEHeartRateEventArgs& args) {
 
 //--------------------------------------------------------------
 void ofApp::onScanEvent(ofxBLEHeartRateEventArgs& args) {
+    cout << "Scanning for BLE devices..." << endl;
     if (args.peripheralId != bleDeviceId1 && args.peripheralId != bleDeviceId2) {
         return;
     }
@@ -270,11 +279,11 @@ void ofApp::onScanEvent(ofxBLEHeartRateEventArgs& args) {
 
 //--------------------------------------------------------------
 void ofApp::onConnectEvent(ofxBLEHeartRateEventArgs& args) {
-    cout << "Sucessfully connected to device ID " + args.peripheralId + "." << endl;
+    cout << "Sucessfully connected to device ID " + args.peripheralId << endl;
 }
 
 void ofApp::onDisconnectEvent(ofxBLEHeartRateEventArgs& args) {
-    cout << "Disconnected device ID " + args.peripheralId + "." << endl;
+    cout << "Disconnected from device ID " + args.peripheralId << endl;
 }
 
 

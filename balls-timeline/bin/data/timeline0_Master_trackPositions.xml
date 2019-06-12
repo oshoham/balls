@@ -7,15 +7,15 @@
     </element>
     <element name="Balls Fade">
         <x>0.000000000</x>
-        <y>352.703125000</y>
+        <y>246.671875000</y>
         <width>1024.000000000</width>
-        <height>83.406250000</height>
+        <height>75.882812500</height>
     </element>
     <element name="Chaos Fade">
         <x>0.000000000</x>
-        <y>590.183593750</y>
+        <y>464.800781250</y>
         <width>1024.000000000</width>
-        <height>94.746093750</height>
+        <height>78.382812500</height>
     </element>
     <element name="Fade">
         <x>0.000000000</x>
@@ -45,7 +45,7 @@
         <x>0.000000000</x>
         <y>130.000000000</y>
         <width>1024.000000000</width>
-        <height>190.703125000</height>
+        <height>84.671875000</height>
     </element>
     <element name="Renderer">
         <x>0.000000000</x>
@@ -61,8 +61,8 @@
     </element>
     <element name="Stars Fade">
         <x>0.000000000</x>
-        <y>468.109375000</y>
+        <y>354.554687500</y>
         <width>1024.000000000</width>
-        <height>90.074218750</height>
+        <height>78.246093750</height>
     </element>
 </positions>

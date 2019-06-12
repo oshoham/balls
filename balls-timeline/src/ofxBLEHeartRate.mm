@@ -635,7 +635,7 @@ void ofxBLEHeartRate::draw(){
  */
 - (void) peripheral:(CBPeripheral *)aPeripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
-    NSLog(@"received value for char %@", characteristic.UUID);
+//    NSLog(@"received value for char %@", characteristic.UUID);
     
     /* Updated value for heart rate measurement received */
     if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:@"2A37"]])

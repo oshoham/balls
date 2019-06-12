@@ -8,7 +8,7 @@
 
 #define TARGET_FPS 60
 #define LOCKED_AND_MUTED false
-#define QLAB_OSC_PORT 53001
+#define QLAB_OSC_PORT 6000
 #define MAX_MSP_OSC_PORT 9000
 
 class ofApp : public ofBaseApp{
