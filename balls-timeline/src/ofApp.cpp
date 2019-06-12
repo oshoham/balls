@@ -61,6 +61,19 @@ void ofApp::setup(){
     timeline.enableSnapToOtherKeyframes(false);
     timeline.enableSnapToBPM(false);
     timeline.moveToThread();
+    
+    bleDeviceId1 = "";
+    bleDeviceId2 = "";
+    bleHeartRate1.setup();
+    bleHeartRate2.setup();
+    ofAddListener(bleHeartRate1.hrmEvent, this, &ofApp::onHRMEvent);
+    ofAddListener(bleHeartRate1.scanEvent, this, &ofApp::onScanEvent);
+    ofAddListener(bleHeartRate1.connectEvent, this, &ofApp::onConnectEvent);
+    ofAddListener(bleHeartRate1.disconnectEvent, this, &ofApp::onDisconnectEvent);
+    ofAddListener(bleHeartRate2.hrmEvent, this, &ofApp::onHRMEvent);
+    ofAddListener(bleHeartRate2.scanEvent, this, &ofApp::onScanEvent);
+    ofAddListener(bleHeartRate2.connectEvent, this, &ofApp::onConnectEvent);
+    ofAddListener(bleHeartRate2.disconnectEvent, this, &ofApp::onDisconnectEvent);
 }
 
 //--------------------------------------------------------------
@@ -224,6 +237,46 @@ void ofApp::keyPressed(ofKeyEventArgs & keyArgs){
         timeline.setCurrentPage(ofWrap(timeline.getCurrentPageIndex() - 1, 0, timeline.getPages().size()));
     }
 }
+
+//--------------------------------------------------------------
+void ofApp::onHRMEvent(ofxBLEHeartRateEventArgs& args) {
+    if (args.peripheralId != bleDeviceId1 && args.peripheralId != bleDeviceId2) {
+        return;
+    }
+    
+    ofxOscMessage msg;
+    if (args.peripheralId == bleDeviceId1) {
+        msg.setAddress("/heartrate1");
+    } else {
+        msg.setAddress("/heartrate2");
+    }
+    msg.addIntArg(args.heartRate);
+    oscSender.sendMessage(msg, false);
+}
+
+//--------------------------------------------------------------
+void ofApp::onScanEvent(ofxBLEHeartRateEventArgs& args) {
+    if (args.peripheralId != bleDeviceId1 && args.peripheralId != bleDeviceId2) {
+        return;
+    }
+    
+    cout << "Connecting to device ID " + args.peripheralId + "..." << endl;
+    if (args.peripheralId == bleDeviceId1) {
+        bleHeartRate1.connectDevice(args.peripheralId);
+    } else {
+        bleHeartRate2.connectDevice(args.peripheralId);
+    }
+}
+
+//--------------------------------------------------------------
+void ofApp::onConnectEvent(ofxBLEHeartRateEventArgs& args) {
+    cout << "Sucessfully connected to device ID " + args.peripheralId + "." << endl;
+}
+
+void ofApp::onDisconnectEvent(ofxBLEHeartRateEventArgs& args) {
+    cout << "Disconnected device ID " + args.peripheralId + "." << endl;
+}
+
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){

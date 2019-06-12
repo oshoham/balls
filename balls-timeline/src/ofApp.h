@@ -4,8 +4,9 @@
 #include "ofxOsc.h"
 #include "ofxTimeline.h"
 #include "ofxTLAudioTrack.h"
+#include "ofxBLEHeartRate.h"
 
-#define TARGET_FPS 30
+#define TARGET_FPS 60
 #define LOCKED_AND_MUTED false
 #define QLAB_OSC_PORT 53001
 #define MAX_MSP_OSC_PORT 9000
@@ -33,8 +34,18 @@ class ofApp : public ofBaseApp{
 		void receivedBang(ofxTLBangEventArgs& bang);
         void receivedSwitchEvent(ofxTLSwitchEventArgs& switchEvent);
 		void printOscMessage(ofxOscMessage message);
+    
+        void onScanEvent(ofxBLEHeartRateEventArgs& args);
+        void onHRMEvent(ofxBLEHeartRateEventArgs& args);
+        void onConnectEvent(ofxBLEHeartRateEventArgs& args);
+        void onDisconnectEvent(ofxBLEHeartRateEventArgs& args);
 
 		ofxTimeline timeline;
 		ofxOscSender oscSender;
 		ofxOscReceiver oscReceiver;
+    
+        ofxBLEHeartRate bleHeartRate1;
+        ofxBLEHeartRate bleHeartRate2;
+        string bleDeviceId1;
+        string bleDeviceId2;
 };

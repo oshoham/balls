@@ -44,6 +44,8 @@
 		9934B2757D0888541C84333B /* ofxTextInputField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE4F6B4B6660C76872428862 /* ofxTextInputField.cpp */; };
 		A591EF7C0888CC44827AAD74 /* ofxMSATimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54AEB7A545980B36DB6E9FFB /* ofxMSATimer.cpp */; };
 		A96796E6F53E8BC30D28997A /* ofxEasingExpo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BD89E935DAB8A653892172DF /* ofxEasingExpo.cpp */; };
+		AF66145822B0D102009AA206 /* ofxBLEHeartRate.mm in Sources */ = {isa = PBXBuildFile; fileRef = AF66145722B0D102009AA206 /* ofxBLEHeartRate.mm */; };
+		AF66145A22B0D364009AA206 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF66145922B0D364009AA206 /* CoreBluetooth.framework */; };
 		AF6CD54922A8ECEE00F1DD29 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6CD54822A8ECED00F1DD29 /* OpenAL.framework */; };
 		B095AFD90F3151287868CDBA /* ofxEasingQuart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F561F3512CAAF970B9C7FC5 /* ofxEasingQuart.cpp */; };
 		B0A1CDFB62DE57FC6B308B17 /* ofxTLPage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E2D35B81161A51D5E1723192 /* ofxTLPage.cpp */; };
@@ -257,6 +259,9 @@
 		A9B5D9D900D4C5A9CDC6685A /* OscPrintReceivedElements.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = OscPrintReceivedElements.h; path = ../../of_v0.10.1_osx_release/addons/ofxOsc/libs/oscpack/src/osc/OscPrintReceivedElements.h; sourceTree = SOURCE_ROOT; };
 		AD8F5F91FFAE17A45F1847FC /* dsa.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = dsa.h; path = ../../of_v0.10.1_osx_release/addons/ofxPoco/libs/openssl/include/openssl/dsa.h; sourceTree = SOURCE_ROOT; };
 		AE9DD9954447477C451F5AAE /* kiss_fftr.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = kiss_fftr.c; path = ../../of_v0.10.1_osx_release/addons/ofxTimeline/libs/kiss/src/kiss_fftr.c; sourceTree = SOURCE_ROOT; };
+		AF66145422B0D09E009AA206 /* ofxBLEHeartRate.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; name = ofxBLEHeartRate.h; path = src/ofxBLEHeartRate.h; sourceTree = SOURCE_ROOT; };
+		AF66145722B0D102009AA206 /* ofxBLEHeartRate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ofxBLEHeartRate.mm; path = src/ofxBLEHeartRate.mm; sourceTree = SOURCE_ROOT; };
+		AF66145922B0D364009AA206 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		AF6CD54822A8ECED00F1DD29 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		B0AFF5F9E3724AE4B6C54A1B /* audiodecodercoreaudio.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = audiodecodercoreaudio.cpp; path = ../../of_v0.10.1_osx_release/addons/ofxAudioDecoder/libs/src/audiodecodercoreaudio.cpp; sourceTree = SOURCE_ROOT; };
 		B15A97047431E647D5093393 /* kiss_fft.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = kiss_fft.h; path = ../../of_v0.10.1_osx_release/addons/ofxTimeline/libs/kiss/include/kiss_fft.h; sourceTree = SOURCE_ROOT; };
@@ -474,9 +479,9 @@
 		E42963722163EDD300A6A9E2 /* ofSoundBuffer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ofSoundBuffer.cpp; path = ../../of_v0.10.1_osx_release/libs/openFrameworks/sound/ofSoundBuffer.cpp; sourceTree = SOURCE_ROOT; };
 		E42963732163EDD300A6A9E2 /* ofSoundBaseTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ofSoundBaseTypes.h; path = ../../of_v0.10.1_osx_release/libs/openFrameworks/sound/ofSoundBaseTypes.h; sourceTree = SOURCE_ROOT; };
 		E4B69B5B0A3A1756003C02F2 /* balls-timelineDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "balls-timelineDebug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
-		E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofApp.cpp; path = src/ofApp.cpp; sourceTree = SOURCE_ROOT; };
-		E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
+		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
+		E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = ofApp.cpp; path = src/ofApp.cpp; sourceTree = SOURCE_ROOT; };
+		E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
 		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
 		E64BA774DAE8052ABAF66AEC /* ec.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ec.h; path = ../../of_v0.10.1_osx_release/addons/ofxPoco/libs/openssl/include/openssl/ec.h; sourceTree = SOURCE_ROOT; };
@@ -512,6 +517,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF66145A22B0D364009AA206 /* CoreBluetooth.framework in Frameworks */,
 				AF6CD54922A8ECEE00F1DD29 /* OpenAL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -967,6 +973,7 @@
 		AF6CD54722A8ECED00F1DD29 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AF66145922B0D364009AA206 /* CoreBluetooth.framework */,
 				AF6CD54822A8ECED00F1DD29 /* OpenAL.framework */,
 			);
 			name = Frameworks;
@@ -1397,8 +1404,10 @@
 			isa = PBXGroup;
 			children = (
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
+				AF66145722B0D102009AA206 /* ofxBLEHeartRate.mm */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
+				AF66145422B0D09E009AA206 /* ofxBLEHeartRate.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -1600,6 +1609,7 @@
 				32DC76B1BFACB97B42360DD9 /* ofxTLTrack.cpp in Sources */,
 				EF43F7CD61EF45DB8FF3338B /* ofxTLTrackHeader.cpp in Sources */,
 				ED8433C1BEE18A3CC3B479A4 /* ofxTLVideoThumb.cpp in Sources */,
+				AF66145822B0D102009AA206 /* ofxBLEHeartRate.mm in Sources */,
 				DB26D745885D0C45C1B4E679 /* ofxTLVideoTrack.cpp in Sources */,
 				7815F4A30279662DEC1B2470 /* ofxTLZoomer.cpp in Sources */,
 				B9A75289F93D84229231DDE4 /* ofxTimeline.cpp in Sources */,

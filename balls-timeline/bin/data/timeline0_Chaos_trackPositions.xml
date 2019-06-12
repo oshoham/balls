@@ -1,0 +1,14 @@
+<positions>
+    <element name="Audio">
+        <x>0.000000000</x>
+        <y>58.000000000</y>
+        <width>1024.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="Lots of Balls">
+        <x>0.000000000</x>
+        <y>130.000000000</y>
+        <width>1024.000000000</width>
+        <height>82.441406250</height>
+    </element>
+</positions>
