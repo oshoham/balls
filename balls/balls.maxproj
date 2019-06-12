@@ -2,7 +2,7 @@
 	"name" : "balls",
 	"version" : 1,
 	"creationdate" : 3641991727,
-	"modificationdate" : 3642969468,
+	"modificationdate" : 3643101077,
 	"viewrect" : [ 50.0, 98.0, 300.0, 500.0 ],
 	"autoorganize" : 1,
 	"hideprojectwindow" : 0,
@@ -10,15 +10,15 @@
 	"autolocalize" : 0,
 	"contents" : 	{
 		"patchers" : 		{
-			"main.maxpat" : 			{
-				"kind" : "patcher",
-				"local" : 1
-			}
-,
 			"visuals.maxpat" : 			{
 				"kind" : "patcher",
 				"local" : 1,
 				"toplevel" : 1
+			}
+,
+			"main.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
 			}
 ,
 			"tri.sphere.maxpat" : 			{
@@ -51,6 +51,10 @@
 				"kind" : "object",
 				"local" : 1
 			}
+
+		}
+,
+		"other" : 		{
 
 		}
 
