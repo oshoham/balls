@@ -5,40 +5,76 @@
         <width>1024.000000000</width>
         <height>40.000000000</height>
     </element>
+    <element name="Left Ball Distortion">
+        <x>0.000000000</x>
+        <y>584.523437500</y>
+        <width>1024.000000000</width>
+        <height>10.781250000</height>
+    </element>
     <element name="Left Ball Jitter">
         <x>0.000000000</x>
-        <y>489.921875000</y>
+        <y>307.738281250</y>
         <width>1024.000000000</width>
-        <height>25.492187500</height>
+        <height>10.488281250</height>
     </element>
     <element name="Left Ball Position">
         <x>0.000000000</x>
         <y>130.000000000</y>
         <width>1024.000000000</width>
-        <height>164.285156250</height>
+        <height>61.753906250</height>
+    </element>
+    <element name="Left Ball Resolution">
+        <x>0.000000000</x>
+        <y>604.515625000</y>
+        <width>1024.000000000</width>
+        <height>4.914062500</height>
     </element>
     <element name="Left Ball Size">
         <x>0.000000000</x>
-        <y>607.722656250</y>
+        <y>393.871093750</y>
         <width>1024.000000000</width>
-        <height>25.613281250</height>
+        <height>54.886718750</height>
+    </element>
+    <element name="Left Ball Spin">
+        <x>0.000000000</x>
+        <y>659.664062500</y>
+        <width>1024.000000000</width>
+        <height>4.292968750</height>
+    </element>
+    <element name="Right Ball Distortion">
+        <x>0.000000000</x>
+        <y>627.304687500</y>
+        <width>1024.000000000</width>
+        <height>0.359375000</height>
     </element>
     <element name="Right Ball Jitter">
         <x>0.000000000</x>
-        <y>547.414062500</y>
+        <y>350.226562500</y>
         <width>1024.000000000</width>
-        <height>28.308593750</height>
+        <height>11.644531250</height>
     </element>
     <element name="Right Ball Position">
         <x>0.000000000</x>
-        <y>326.285156250</y>
+        <y>223.753906250</y>
         <width>1024.000000000</width>
-        <height>131.636718750</height>
+        <height>51.984375000</height>
+    </element>
+    <element name="Right Ball Resolution">
+        <x>0.000000000</x>
+        <y>641.429687500</y>
+        <width>1024.000000000</width>
+        <height>39.410156250</height>
     </element>
     <element name="Right Ball Size">
         <x>0.000000000</x>
-        <y>665.335937500</y>
+        <y>480.757812500</y>
         <width>1024.000000000</width>
-        <height>28.023437500</height>
+        <height>71.765625000</height>
+    </element>
+    <element name="Right Ball Spin">
+        <x>0.000000000</x>
+        <y>695.957031250</y>
+        <width>1024.000000000</width>
+        <height>7.093750000</height>
     </element>
 </positions>

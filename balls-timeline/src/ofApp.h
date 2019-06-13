@@ -6,7 +6,7 @@
 #include "ofxTLAudioTrack.h"
 #include "ofxBLEHeartRate.h"
 
-#define TARGET_FPS 60
+#define TARGET_FPS 30
 #define LOCKED_AND_MUTED false
 #define QLAB_OSC_PORT 6000
 #define MAX_MSP_OSC_PORT 9000

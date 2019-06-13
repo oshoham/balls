@@ -18,7 +18,7 @@ void ofApp::setup(){
     timeline.setFrameRate(TARGET_FPS);
 //    timeline.setFrameBased(true);
 	timeline.setLoopType(OF_LOOP_NONE);
-    timeline.addAudioTrack("Audio", "MixDown.mp3");
+    timeline.addAudioTrack("Audio", "mix_final.wav");
     timeline.setTimecontrolTrack("Audio");
     ofxTLAudioTrack* audioTrack = timeline.getAudioTrack("Audio");
     timeline.setDurationInSeconds(audioTrack->getDuration());
@@ -28,6 +28,7 @@ void ofApp::setup(){
     timeline.addCurves("Balls Fade", ofRange(0.0, 1.0));
     timeline.addCurves("Stars Fade", ofRange(0.0, 1.0));
     timeline.addCurves("Chaos Fade", ofRange(0.0, 1.0));
+    timeline.addCurves("Fog Fade", ofRange(0.0, 0.7));
     
     timeline.addPage("Balls");
     timeline.getPage("Balls")->addTrack("Audio", audioTrack);
@@ -37,7 +38,13 @@ void ofApp::setup(){
     timeline.addCurves("Right Ball Jitter", ofRange(0.0, 0.2));
     timeline.addCurves("Left Ball Size", ofRange(0.0, 1.0));
     timeline.addCurves("Right Ball Size", ofRange(0.0, 1.0));
-    
+    timeline.addCurves("Left Ball Distortion", ofRange(0.0, 4.));
+    timeline.addCurves("Right Ball Distortion", ofRange(0.0, 4.));
+    timeline.addCurves("Left Ball Spin", ofRange(0., 1.));
+    timeline.addCurves("Right Ball Spin", ofRange(0., 1.));
+//    timeline.addCurves("Left Ball Resolution", ofRange(2, 5));
+//    timeline.addCurves("Right Ball Resolution", ofRange(2, 6));
+
     timeline.addPage("Stars");
     timeline.getPage("Stars")->addTrack("Audio", audioTrack);
     timeline.addSwitches("Twinkle");
@@ -119,6 +126,11 @@ void ofApp::update(){
         chaosFadeMessage.addFloatArg(timeline.getValue("Chaos Fade"));
         oscSender.sendMessage(chaosFadeMessage, false);
         
+        ofxOscMessage fogFadeMessage;
+        fogFadeMessage.setAddress("/fog/fade");
+        fogFadeMessage.addFloatArg(timeline.getValue("Fog Fade"));
+        oscSender.sendMessage(fogFadeMessage, false);
+        
         ofxOscMessage leftBallPositionMessage;
         leftBallPositionMessage.setAddress("/left_ball/position");
         leftBallPositionMessage.addFloatArg(timeline.getValue("Left Ball Position"));
@@ -149,14 +161,34 @@ void ofApp::update(){
         rightBallSizeMessage.addFloatArg(timeline.getValue("Right Ball Size"));
         oscSender.sendMessage(rightBallSizeMessage, false);
         
-        ofxTLAudioTrack* track = timeline.getAudioTrack("Audio");
-        ofxOscMessage audioFFTMessage;
-        audioFFTMessage.setAddress("/fft");
-        vector<float> fft = track->getFFT();
-        for (int i = 0; i < track->getFFTSize(); i++) {
-            audioFFTMessage.addFloatArg(fft[i]);
-        }
-        oscSender.sendMessage(audioFFTMessage, false);
+        ofxOscMessage leftBallDistortionMessage;
+        leftBallDistortionMessage.setAddress("/left_ball/distortion");
+        leftBallDistortionMessage.addFloatArg(timeline.getValue("Left Ball Distortion"));
+        oscSender.sendMessage(leftBallDistortionMessage, false);
+        
+        ofxOscMessage rightBallDistortionMessage;
+        rightBallDistortionMessage.setAddress("/right_ball/distortion");
+        rightBallDistortionMessage.addFloatArg(timeline.getValue("Right Ball Distortion"));
+        oscSender.sendMessage(rightBallDistortionMessage, false);
+        
+        ofxOscMessage leftBallSpinMessage;
+        leftBallSpinMessage.setAddress("/left_ball/spin");
+        leftBallSpinMessage.addFloatArg(timeline.getValue("Left Ball Spin"));
+        oscSender.sendMessage(leftBallSpinMessage, false);
+        
+        ofxOscMessage rightBallSpinMessage;
+        rightBallSpinMessage.setAddress("/right_ball/spin");
+        rightBallSpinMessage.addFloatArg(timeline.getValue("Right Ball Spin"));
+        oscSender.sendMessage(rightBallSpinMessage, false);
+        
+//        ofxTLAudioTrack* track = timeline.getAudioTrack("Audio");
+//        ofxOscMessage audioFFTMessage;
+//        audioFFTMessage.setAddress("/fft");
+//        vector<float> fft = track->getFFT();
+//        for (int i = 0; i < track->getFFTSize(); i++) {
+//            audioFFTMessage.addFloatArg(fft[i]);
+//        }
+//        oscSender.sendMessage(audioFFTMessage, false);
         
         ofxOscMessage rendererMessage;
         rendererMessage.setAddress("/enable_renderer");
