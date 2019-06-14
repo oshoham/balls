@@ -29,6 +29,9 @@ void ofApp::setup(){
     timeline.addCurves("Stars Fade", ofRange(0.0, 1.0));
     timeline.addCurves("Chaos Fade", ofRange(0.0, 1.0));
     timeline.addCurves("Fog Fade", ofRange(0.0, 0.7));
+    timeline.addCurves("Invert", ofRange(0, 1));
+    timeline.addCurves("Lighting Disable", ofRange(0, 1));
+    timeline.addCurves("Balls Arc Width", ofRange(1.585, 1.778));
     
     timeline.addPage("Balls");
     timeline.getPage("Balls")->addTrack("Audio", audioTrack);
@@ -38,8 +41,8 @@ void ofApp::setup(){
     timeline.addCurves("Right Ball Jitter", ofRange(0.0, 0.2));
     timeline.addCurves("Left Ball Size", ofRange(0.0, 1.0));
     timeline.addCurves("Right Ball Size", ofRange(0.0, 1.0));
-    timeline.addCurves("Left Ball Distortion", ofRange(0.0, 4.));
-    timeline.addCurves("Right Ball Distortion", ofRange(0.0, 4.));
+    timeline.addCurves("Left Ball Distortion", ofRange(0.0, 12.));
+    timeline.addCurves("Right Ball Distortion", ofRange(0.0, 12.));
     timeline.addCurves("Left Ball Spin", ofRange(0., 1.));
     timeline.addCurves("Right Ball Spin", ofRange(0., 1.));
 //    timeline.addCurves("Left Ball Resolution", ofRange(2, 5));
@@ -130,6 +133,21 @@ void ofApp::update(){
         fogFadeMessage.setAddress("/fog/fade");
         fogFadeMessage.addFloatArg(timeline.getValue("Fog Fade"));
         oscSender.sendMessage(fogFadeMessage, false);
+        
+        ofxOscMessage invertMessage;
+        invertMessage.setAddress("/invert");
+        invertMessage.addIntArg(timeline.getValue("Invert"));
+        oscSender.sendMessage(invertMessage, false);
+        
+        ofxOscMessage lightingDisableMessage;
+        lightingDisableMessage.setAddress("/lighting_disable");
+        lightingDisableMessage.addIntArg(timeline.getValue("Lighting Disable"));
+        oscSender.sendMessage(lightingDisableMessage, false);
+        
+        ofxOscMessage arcWidthMessage;
+        arcWidthMessage.setAddress("/balls/arc_width");
+        arcWidthMessage.addFloatArg(timeline.getValue("Balls Arc Width"));
+        oscSender.sendMessage(arcWidthMessage, false);
         
         ofxOscMessage leftBallPositionMessage;
         leftBallPositionMessage.setAddress("/left_ball/position");

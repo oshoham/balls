@@ -5,17 +5,23 @@
         <width>1024.000000000</width>
         <height>40.000000000</height>
     </element>
+    <element name="Balls Arc Width">
+        <x>0.000000000</x>
+        <y>552.445312500</y>
+        <width>1024.000000000</width>
+        <height>27.152343750</height>
+    </element>
     <element name="Balls Fade">
         <x>0.000000000</x>
         <y>302.464843750</y>
         <width>1024.000000000</width>
-        <height>77.035156250</height>
+        <height>6.203125000</height>
     </element>
     <element name="Chaos Fade">
         <x>0.000000000</x>
-        <y>497.636718750</y>
+        <y>395.113281250</y>
         <width>1024.000000000</width>
-        <height>87.769531250</height>
+        <height>8.296875000</height>
     </element>
     <element name="Fade">
         <x>0.000000000</x>
@@ -31,9 +37,9 @@
     </element>
     <element name="Fog Fade">
         <x>0.000000000</x>
-        <y>617.406250000</y>
+        <y>435.410156250</y>
         <width>1024.000000000</width>
-        <height>41.453125000</height>
+        <height>10.769531250</height>
     </element>
     <element name="Global Fade">
         <x>0.000000000</x>
@@ -41,11 +47,23 @@
         <width>1024.000000000</width>
         <height>82.695312500</height>
     </element>
+    <element name="Invert">
+        <x>0.000000000</x>
+        <y>478.179687500</y>
+        <width>1024.000000000</width>
+        <height>10.265625000</height>
+    </element>
     <element name="Left Ball Position">
         <x>0.000000000</x>
         <y>195.570312500</y>
         <width>1024.000000000</width>
         <height>207.621093750</height>
+    </element>
+    <element name="Lighting Disable">
+        <x>0.000000000</x>
+        <y>520.445312500</y>
+        <width>1024.000000000</width>
+        <height>0.000000000</height>
     </element>
     <element name="Master Fade">
         <x>0.000000000</x>
@@ -67,8 +85,8 @@
     </element>
     <element name="Stars Fade">
         <x>0.000000000</x>
-        <y>411.500000000</y>
+        <y>340.667968750</y>
         <width>1024.000000000</width>
-        <height>54.136718750</height>
+        <height>22.445312500</height>
     </element>
 </positions>
