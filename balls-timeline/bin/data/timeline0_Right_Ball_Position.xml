@@ -338,25 +338,109 @@
     <key>
         <type>0</type>
         <phaseShift>0.000000000</phaseShift>
-        <amplitude>0.159960955</amplitude>
-        <frequency>5.967965126</frequency>
+        <amplitude>0.786222637</amplitude>
+        <frequency>5.314062595</frequency>
         <seed>0.000000000</seed>
-        <center>-0.040519528</center>
-        <interpolate>1</interpolate>
+        <center>0.000000000</center>
+        <interpolate>0</interpolate>
         <expInterpolate>0</expInterpolate>
-        <time>00:30:20:536</time>
-        <value>0.159570754</value>
+        <time>00:23:25:546</time>
+        <value>0.810842097</value>
     </key>
     <key>
         <type>0</type>
-        <phaseShift>11590.843750000</phaseShift>
+        <phaseShift>0.000000000</phaseShift>
         <amplitude>0.000000000</amplitude>
         <frequency>1.000000000</frequency>
         <seed>0.000000000</seed>
-        <center>-0.399812520</center>
+        <center>0.384976596</center>
         <interpolate>0</interpolate>
         <expInterpolate>0</expInterpolate>
-        <time>00:30:21:189</time>
-        <value>0.000000000</value>
+        <time>00:23:31:036</time>
+        <value>0.550013542</value>
+    </key>
+    <key>
+        <type>0</type>
+        <phaseShift>-1825.113281250</phaseShift>
+        <amplitude>0.786222637</amplitude>
+        <frequency>5.314062595</frequency>
+        <seed>0.000000000</seed>
+        <center>0.000000000</center>
+        <interpolate>0</interpolate>
+        <expInterpolate>0</expInterpolate>
+        <time>00:24:18:654</time>
+        <value>0.810842097</value>
+    </key>
+    <key>
+        <type>0</type>
+        <phaseShift>0.000000000</phaseShift>
+        <amplitude>0.000000000</amplitude>
+        <frequency>1.000000000</frequency>
+        <seed>0.000000000</seed>
+        <center>-0.376890630</center>
+        <interpolate>0</interpolate>
+        <expInterpolate>0</expInterpolate>
+        <time>00:24:23:788</time>
+        <value>0.521434367</value>
+    </key>
+    <key>
+        <type>0</type>
+        <phaseShift>-11562.335937500</phaseShift>
+        <amplitude>0.650749981</amplitude>
+        <frequency>5.314062595</frequency>
+        <seed>0.000000000</seed>
+        <center>0.000000000</center>
+        <interpolate>0</interpolate>
+        <expInterpolate>0</expInterpolate>
+        <time>00:26:04:063</time>
+        <value>0.686174393</value>
+    </key>
+    <key>
+        <type>0</type>
+        <phaseShift>0.000000000</phaseShift>
+        <amplitude>0.000000000</amplitude>
+        <frequency>1.000000000</frequency>
+        <seed>0.000000000</seed>
+        <center>-0.376890630</center>
+        <interpolate>0</interpolate>
+        <expInterpolate>0</expInterpolate>
+        <time>00:26:16:098</time>
+        <value>0.556514502</value>
+    </key>
+    <key>
+        <type>0</type>
+        <phaseShift>-11595.160156250</phaseShift>
+        <amplitude>0.650749981</amplitude>
+        <frequency>5.314062595</frequency>
+        <seed>0.000000000</seed>
+        <center>0.000000000</center>
+        <interpolate>1</interpolate>
+        <expInterpolate>0</expInterpolate>
+        <time>00:26:20:471</time>
+        <value>0.658653855</value>
+    </key>
+    <key>
+        <type>0</type>
+        <phaseShift>-6185.519531250</phaseShift>
+        <amplitude>0.396695286</amplitude>
+        <frequency>5.314062595</frequency>
+        <seed>0.000000000</seed>
+        <center>0.000000000</center>
+        <interpolate>1</interpolate>
+        <expInterpolate>0</expInterpolate>
+        <time>00:28:23:319</time>
+        <value>0.205180824</value>
+    </key>
+    <key>
+        <type>0</type>
+        <phaseShift>0.000000000</phaseShift>
+        <amplitude>0.000000000</amplitude>
+        <frequency>1.000000000</frequency>
+        <seed>0.000000000</seed>
+        <center>-0.376890630</center>
+        <interpolate>0</interpolate>
+        <expInterpolate>0</expInterpolate>
+        <time>00:28:28:169</time>
+        <value>0.375133276</value>
     </key>
 </keyframes>

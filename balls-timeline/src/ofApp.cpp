@@ -18,7 +18,7 @@ void ofApp::setup(){
     timeline.setFrameRate(TARGET_FPS);
 //    timeline.setFrameBased(true);
 	timeline.setLoopType(OF_LOOP_NONE);
-    timeline.addAudioTrack("Audio", "mix_final.wav");
+    timeline.addAudioTrack("Audio", "add_audio_master.wav");
     timeline.setTimecontrolTrack("Audio");
     ofxTLAudioTrack* audioTrack = timeline.getAudioTrack("Audio");
     timeline.setDurationInSeconds(audioTrack->getDuration());
@@ -32,6 +32,7 @@ void ofApp::setup(){
     timeline.addCurves("Invert", ofRange(0, 1));
     timeline.addCurves("Lighting Disable", ofRange(0, 1));
     timeline.addCurves("Balls Arc Width", ofRange(1.585, 1.778));
+    timeline.addCurves("Left Ball Rotate", ofRange(0, 1));
     
     timeline.addPage("Balls");
     timeline.getPage("Balls")->addTrack("Audio", audioTrack);
@@ -45,7 +46,7 @@ void ofApp::setup(){
     timeline.addCurves("Right Ball Distortion", ofRange(0.0, 12.));
     timeline.addCurves("Left Ball Spin", ofRange(0., 1.));
     timeline.addCurves("Right Ball Spin", ofRange(0., 1.));
-//    timeline.addCurves("Left Ball Resolution", ofRange(2, 5));
+    timeline.addCurves("Left Ball Resolution", ofRange(2, 5));
 //    timeline.addCurves("Right Ball Resolution", ofRange(2, 6));
 
     timeline.addPage("Stars");
@@ -198,6 +199,16 @@ void ofApp::update(){
         rightBallSpinMessage.setAddress("/right_ball/spin");
         rightBallSpinMessage.addFloatArg(timeline.getValue("Right Ball Spin"));
         oscSender.sendMessage(rightBallSpinMessage, false);
+        
+        ofxOscMessage leftBallResolutionMessage;
+        leftBallResolutionMessage.setAddress("/left_ball/resolution");
+        leftBallResolutionMessage.addFloatArg(timeline.getValue("Left Ball Resolution"));
+        oscSender.sendMessage(leftBallResolutionMessage, false);
+        
+        ofxOscMessage leftBallRotateMessage;
+        leftBallRotateMessage.setAddress("/left_ball/rotate");
+        leftBallRotateMessage.addIntArg(timeline.getValue("Left Ball Rotate"));
+        oscSender.sendMessage(leftBallRotateMessage);
         
 //        ofxTLAudioTrack* track = timeline.getAudioTrack("Audio");
 //        ofxOscMessage audioFFTMessage;

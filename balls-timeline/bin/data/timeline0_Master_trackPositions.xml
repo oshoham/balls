@@ -7,9 +7,9 @@
     </element>
     <element name="Balls Arc Width">
         <x>0.000000000</x>
-        <y>552.445312500</y>
+        <y>712.171875000</y>
         <width>1024.000000000</width>
-        <height>27.152343750</height>
+        <height>58.773437500</height>
     </element>
     <element name="Balls Fade">
         <x>0.000000000</x>
@@ -19,7 +19,7 @@
     </element>
     <element name="Chaos Fade">
         <x>0.000000000</x>
-        <y>395.113281250</y>
+        <y>397.683593750</y>
         <width>1024.000000000</width>
         <height>8.296875000</height>
     </element>
@@ -37,9 +37,9 @@
     </element>
     <element name="Fog Fade">
         <x>0.000000000</x>
-        <y>435.410156250</y>
+        <y>437.980468750</y>
         <width>1024.000000000</width>
-        <height>10.769531250</height>
+        <height>108.542968750</height>
     </element>
     <element name="Global Fade">
         <x>0.000000000</x>
@@ -49,7 +49,7 @@
     </element>
     <element name="Invert">
         <x>0.000000000</x>
-        <y>478.179687500</y>
+        <y>578.523437500</y>
         <width>1024.000000000</width>
         <height>10.265625000</height>
     </element>
@@ -59,11 +59,17 @@
         <width>1024.000000000</width>
         <height>207.621093750</height>
     </element>
+    <element name="Left Ball Rotate">
+        <x>0.000000000</x>
+        <y>802.945312500</y>
+        <width>1024.000000000</width>
+        <height>40.000000000</height>
+    </element>
     <element name="Lighting Disable">
         <x>0.000000000</x>
-        <y>520.445312500</y>
+        <y>620.789062500</y>
         <width>1024.000000000</width>
-        <height>0.000000000</height>
+        <height>59.382812500</height>
     </element>
     <element name="Master Fade">
         <x>0.000000000</x>
@@ -87,6 +93,6 @@
         <x>0.000000000</x>
         <y>340.667968750</y>
         <width>1024.000000000</width>
-        <height>22.445312500</height>
+        <height>25.015625000</height>
     </element>
 </positions>
